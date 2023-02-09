@@ -9,19 +9,20 @@
     <meta name="keywords" content="интерактивная страница, путешествия, фотографии">
     <meta name="author" content="Маша Головатенко">
     <link rel="stylesheet" href="pages/index.css">
+    <script src="./index.js" defer></script>
     <title>Место</title>
 </head>
 
 <body class="root">
     <header class="header ">
-        <a class="header__logo" href="#"></a>
+        <a class="header__logo" href="#" target="_blank"></a>
     </header>
 
-    <main class="container">
+    <main>
         <section class="profile">
             <img src="./images/profile__avatar.png" alt="Улыбающийся мужчина в красной шапке." class="profile__avatar">
             <div class="profile__info">
-                <div class="profile__">
+                <div class="profile__flex">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
                     <button class="profile__edit"></button>
                 </div>
@@ -30,34 +31,52 @@
         </section>
 
         <section class="photo-grid">
-            <div class="photo-grid__card"><img src="./images/kilimanjaro-place.png" alt="" class="photo-grid__place">
-                <h2 class="proto-grid__title">Килиманджаро</h2>
-                <button class="photo-grid__like-button"></button>
+            <div class="photo-grid__card">
+                <img src="./images/kilimanjaro-place.png" alt="" class="photo-grid__place">
+                <div class="photo-grid__flex">
+                    <h2 class="photo-grid__title">Гора Килиманджаро</h2>
+                    <button class="photo-grid__like-button"></button>
+                </div>
             </div>
 
-            <div class="photo-grid__card"><img src="./images/mont-blanc-place.png" alt="" class="photo-grid__place">
-                <h2 class="proto-grid__title">Монблан</h2>
-                <button class="photo-grid__like-button"></button>
+            <div class="photo-grid__card">
+                <img src="./images/mont-blanc-place.png" alt="" class="photo-grid__place">
+                <div class="photo-grid__flex">
+                    <h2 class="photo-grid__title">Гора Монблан</h2>
+                    <button class="photo-grid__like-button"></button>
+                </div>
             </div>
 
-            <div class="photo-grid__card"><img src="./images/vinson-place.png" alt="" class="photo-grid__place">
-                <h2 class="proto-grid__title">Массив Винсон</h2>
-                <button class="photo-grid__like-button"></button>
+            <div class="photo-grid__card">
+                <img src="./images/vinson-place.png" alt="" class="photo-grid__place">
+                <div class="photo-grid__flex">
+                    <h2 class="photo-grid__title">Массив Винсон</h2>
+                    <button class="photo-grid__like-button"></button>
+                </div>
             </div>
 
-            <div class="photo-grid__card"><img src="./images/elbrus-place.png" alt="" class="photo-grid__place">
-                <h2 class="proto-grid__title">Эльбрус</h2>
-                <button class="photo-grid__like-button"></button>
+            <div class="photo-grid__card">
+                <img src="./images/elbrus-place.png" alt="" class="photo-grid__place">
+                <div class="photo-grid__flex">
+                    <h2 class="photo-grid__title">Гора Эльбрус</h2>
+                    <button class="photo-grid__like-button "></button>
+                </div>
             </div>
 
-            <div class="photo-grid__card"><img src="./images/everest-place.png" alt="" class="photo-grid__place">
-                <h2 class="proto-grid__title">Джомолунгма</h2>
-                <button class="photo-grid__like-button"></button>
+            <div class="photo-grid__card">
+                <img src="./images/everest-place.png" alt="" class="photo-grid__place">
+                <div class="photo-grid__flex">
+                    <h2 class="photo-grid__title">Гора Джомолунгма</h2>
+                    <button class="photo-grid__like-button"></button>
+                </div>
             </div>
 
-            <div class="photo-grid__card"><img src="./images/aconcagua-place.png" alt="" class="photo-grid__place">
-                <h2 class="proto-grid__title">Аконкагуа</h2>
-                <button class="photo-grid__like-button"></button>
+            <div class="photo-grid__card">
+                <img src="./images/aconcagua-place.png" alt="" class="photo-grid__place">
+                <div class="photo-grid__flex">
+                    <h2 class="photo-grid__title">Гора Аконкагуа</h2>
+                    <button class="photo-grid__like-button"></button>
+                </div>
             </div>
         </section>
     </main>

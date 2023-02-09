@@ -2,9 +2,26 @@
 @import url(../vendor/fonts/fonts.css);
 @import url(../blocks/root/root.css);
 /*HEADER*/
-
+@import url(../blocks/header/header.css);
+@import url(../blocks/header/__logo/header__logo.css);
 /*PROFILE*/
-
+@import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/__avatar/profile__avatar.css);
+@import url(../blocks/profile/__info/profile__info.css);
+@import url(../blocks/profile/__flex/profile__flex.css);
+@import url(../blocks/profile/__name/profile__name.css);
+@import url(../blocks/profile/__edit/profile__edit.css);
+@import url(../blocks/profile/__edit-button/profile__edit-button.css);
+@import url(../blocks/profile/__occupation/profile__occupation.css);
 /*PHOTO-GRID*/
-
+@import url(../blocks/photo-grid/photo-grid.css);
+@import url(../blocks/photo-grid/__card/photo-grid__card.css);
+@import url(../blocks/photo-grid/__place/photo-grid__place.css);
+@import url(../blocks/photo-grid/__flex/photo-grid__flex.css);
+@import url(../blocks/photo-grid/__title/photo-grid__title.css);
+@import url(../blocks/photo-grid/__like-button/photo-grid__like-button.css);
 /*FOOTER*/
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__copyright/footer__copyright.css);
+
+@import url(../blocks/sr-only/sr-only.css);

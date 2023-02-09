@@ -1,0 +1,12 @@
+.header {
+  margin-bottom: 40px;
+  min-height: 74px;
+  border-bottom: 1px solid #545454; /*добавить opacity*/
+}
+
+@media (max-width: 320px) {
+  .header {
+    margin-bottom: 42px;
+    min-height: 56px;
+  }
+}
