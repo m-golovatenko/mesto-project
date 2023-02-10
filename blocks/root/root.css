@@ -2,6 +2,7 @@
   max-width: 880px;
   margin: 0 auto;
   padding: 45px 19px 60px;
+  margin: 0 auto;
   background-color: #000;
   color: #fff;
   font-family: 'Inter', Arial, sans-serif;
@@ -12,7 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 540px) {
   .root {
     padding: 45px 19px 36px;
   }

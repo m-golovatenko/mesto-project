@@ -1,0 +1,8 @@
+.popup-edit-profile__close-button {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+}
