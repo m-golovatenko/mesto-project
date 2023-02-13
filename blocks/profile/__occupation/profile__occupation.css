@@ -6,9 +6,16 @@
   line-height: 22px;
 }
 
-@media (max-width: 540px) {
+@media (max-width: 620px) {
   .profile__occupation {
     text-align: center;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+@media (max-width: 540px) {
+  .profile__occupation {
     font-size: 14px;
     line-height: 17px;
   }

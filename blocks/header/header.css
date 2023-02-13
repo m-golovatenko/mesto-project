@@ -1,13 +1,12 @@
 .header {
-  width: 100%;
+  min-width: 100%;
   min-height: 74px;
-  border-bottom: 1px solid #545454; /*добавить opacity*/
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7); /*добавить opacity*/
   margin-bottom: 40px;
 }
 
 @media (max-width: 540px) {
   .header {
-    width: calc(100% + 19px);
     margin-bottom: 42px;
     min-height: 56px;
   }
