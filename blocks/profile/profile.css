@@ -4,3 +4,11 @@
   align-items: center;
   margin-bottom: 50px;
 }
+
+@media (max-width: 540px) {
+  .profile {
+    flex-direction: column;
+    gap: 22.25px;
+    margin-bottom: 36px;
+  }
+}

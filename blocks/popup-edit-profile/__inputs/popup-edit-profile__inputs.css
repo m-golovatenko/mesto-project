@@ -7,3 +7,9 @@
   gap: 30px;
   margin-bottom: 48px;
 }
+
+@media (max-width: 540px) {
+  .popup-edit-profile__inputs {
+    margin-bottom: 45px;
+  }
+}

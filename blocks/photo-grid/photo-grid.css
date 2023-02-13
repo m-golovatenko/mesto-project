@@ -10,3 +10,10 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+@media (max-width: 620px) {
+  .photo-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

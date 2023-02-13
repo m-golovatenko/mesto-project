@@ -5,8 +5,9 @@
   margin-bottom: 40px;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 540px) {
   .header {
+    width: calc(100% + 19px);
     margin-bottom: 42px;
     min-height: 56px;
   }

@@ -2,12 +2,20 @@
   box-sizing: border-box;
   background-color: #000;
   border: 2px solid #fff;
-  padding: 14px 60px;
+  min-height: 50px;
   cursor: pointer;
   border-radius: 2px;
   margin-left: auto;
+  width: 150px;
 }
 
 .profile__add-button:hover {
   opacity: 0.6;
+}
+
+@media (max-width: 540px) {
+  .profile__add-button {
+    margin: 0 auto;
+    width: 100%;
+  }
 }
