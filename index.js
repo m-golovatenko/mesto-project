@@ -52,7 +52,7 @@ userOccupation.textContent = user.occupation;
 //Openning and closing popup
 editProfileButton.addEventListener('click', openEditPopup);
 function openEditPopup() {
-  editPopup.classList.remove('hidden');
+  editPopup.classList.add('edit-popup_opened');
 }
 
 userNameInput.value = user.name;
@@ -60,7 +60,7 @@ userOccupationInput.value = user.occupation;
 
 editPopupCloseButton.addEventListener('click', closeEditPopup);
 function closeEditPopup() {
-  editPopup.classList.add('hidden');
+  editPopup.classList.remove('edit-popup_opened');
 }
 
 function handleFormSubmit(evt) {

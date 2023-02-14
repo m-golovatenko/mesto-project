@@ -5,6 +5,7 @@
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
 /*PROFILE*/
+@import url(../blocks/container/container.css);
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
 @import url(../blocks/profile/__info/profile__info.css);
@@ -16,7 +17,7 @@
 @import url(../blocks/sr-only/sr-only.css);
 /*POPUP EDIT*/
 @import url(../blocks/edit-popup/edit-popup.css);
-@import url(../blocks/hidden/hidden.css);
+@import url(../blocks/edit-popup/_opened/edit-popup_opened.css);
 @import url(../blocks/edit-popup/__container/edit-popup__container.css);
 @import url(../blocks/edit-popup/__title/edit-popup__title.css);
 @import url(../blocks/input/input.css);

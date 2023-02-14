@@ -1,5 +1,6 @@
 .photo-grid__flex {
-  margin: 25px 20px 31px 21px;
+  margin: 0;
+  padding: 25px 20px 31px 21px;
   width: 246px;
   display: flex;
   justify-content: space-between;

@@ -1,8 +1,8 @@
 .profile__edit-button {
   background: transparent url('../../../images/profile__edit-button.svg') no-repeat 50%;
-  align-self: center;
-  min-width: 24px;
-  min-height: 24px;
+  align-self: baseline;
+  width: 24px;
+  height: 24px;
   border: 1px solid #fff;
   cursor: pointer;
   text-align: center;

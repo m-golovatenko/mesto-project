@@ -1,13 +1,15 @@
 .header {
-  min-width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  margin-top: 45px;
   min-height: 74px;
-  border-bottom: 1px solid rgba(84, 84, 84, 0.7); /*добавить opacity*/
-  margin-bottom: 40px;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  box-sizing: border-box;
 }
 
 @media (max-width: 540px) {
   .header {
-    margin-bottom: 42px;
+    margin-top: 28px;
     min-height: 56px;
   }
 }
