@@ -4,6 +4,10 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
+  max-width: 336px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media (max-width: 620px) {
@@ -16,6 +20,7 @@
 
 @media (max-width: 540px) {
   .profile__occupation {
+    max-width: 282px;
     font-size: 14px;
     line-height: 17px;
   }

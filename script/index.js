@@ -1,72 +1,39 @@
 //ПЕРЕМЕННЫЕ
 //Edit button
 const editProfileButton = document.querySelector('.profile__edit-button');
-if (!editProfileButton) {
-  throw new Error('No editProfileButton');
-}
 //Popup
-const editPopup = document.querySelector('.edit-popup');
-if (!editPopup) {
-  throw new Error('No editPopup');
-}
+const popup = document.querySelector('.popup');
 //Popup close button
-const editPopupCloseButton = document.querySelector('.edit-popup__close-button');
-if (!editPopupCloseButton) {
-  throw new Error('No editPopup');
-}
+const popupCloseButton = document.querySelector('.popup__close-button');
 //Form
-const formElement = document.querySelector('.edit-popup__form');
-if (!formElement) {
-  throw new Error('No formElement');
-}
-//User object
-const user = {
-  name: 'Жак-Ив Кусто',
-  occupation: 'Исследователь океана'
-};
+const formElement = document.querySelector('.popup__form');
 //Name
 const userName = document.querySelector('.profile__name');
-if (!userName) {
-  throw new Error('No userName');
-}
 //Occupation
 const userOccupation = document.querySelector('.profile__occupation');
-if (!userOccupation) {
-  throw new Error('No userOccupation');
-}
 //Name Input
-const userNameInput = document.querySelector('.edit-popup__name');
-if (!userNameInput) {
-  throw new Error('No userNameInput');
-}
+const userNameInput = document.querySelector('.popup__name');
 //Occupation Input
-const userOccupationInput = document.querySelector('.edit-popup__occupation');
-if (!userOccupationInput) {
-  throw new Error('No userOccupationInput');
-}
-
-userName.textContent = user.name;
-
-userOccupation.textContent = user.occupation;
+const userOccupationInput = document.querySelector('.popup__occupation');
 
 //Openning and closing popup
-editProfileButton.addEventListener('click', openEditPopup);
-function openEditPopup() {
-  editPopup.classList.add('edit-popup_opened');
+editProfileButton.addEventListener('click', openPopup);
+function openPopup() {
+  popup.classList.add('popup_opened');
+  userNameInput.value = userName.textContent;
+  userOccupationInput.value = userOccupation.textContent;
 }
 
-userNameInput.value = user.name;
-userOccupationInput.value = user.occupation;
-
-editPopupCloseButton.addEventListener('click', closeEditPopup);
-function closeEditPopup() {
-  editPopup.classList.remove('edit-popup_opened');
+popupCloseButton.addEventListener('click', closePopup);
+function closePopup() {
+  popup.classList.remove('popup_opened');
 }
 
 function handleFormSubmit(evt) {
   evt.preventDefault();
   userName.textContent = userNameInput.value;
   userOccupation.textContent = userOccupationInput.value;
+  closePopup();
 }
 
 formElement.addEventListener('submit', handleFormSubmit);

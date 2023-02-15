@@ -1,18 +1,21 @@
-.photo-grid {
+.photos {
   display: grid;
   grid-template-columns: repeat(auto-fit, 282px);
   gap: 20px 17px;
   margin: 0 auto;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }
 
 @media (max-width: 930px) {
-  .photo-grid {
+  .photos {
     justify-content: center;
   }
 }
 
 @media (max-width: 620px) {
-  .photo-grid {
+  .photos {
     gap: 20px;
   }
 }
