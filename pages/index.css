@@ -32,7 +32,7 @@
 @import url(../blocks/photo-grid/__flex/photo-grid__flex.css);
 @import url(../blocks/photo-grid/__title/photo-grid__title.css);
 @import url(../blocks/photo-grid/__like-button/photo-grid__like-button.css);
-@import url(../blocks/photo-grid/__like-button-icon/photo-grid__like-button-icon.css);
+@import url(../blocks/photo-grid/__like-button-icon/photo-grid__like-icon.css);
 /*FOOTER*/
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
