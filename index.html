@@ -30,51 +30,16 @@
             <button class="profile__add-button" type="button" aria-label="Добавить"></button>
         </section>
 
-        <section>
-            <ul class="photos">
-                <li class="card">
-                    <img src="./images/kilimanjaro-place.png" alt="" class="card__place">
+        <section class="photos">
+            <template class="card__template">
+                <div class="card">
+                    <img class="card__place">
                     <div class="card__flex">
-                        <h2 class="card__title">Гора Килиманджаро</h2>
+                        <h2 class="card__title"></h2>
                         <button class="card__like-button" type="button" aria-label="Нравится"></button>
                     </div>
-                </li>
-                <li class="card">
-                    <img src="./images/mont-blanc-place.png" alt="" class="card__place">
-                    <div class="card__flex">
-                        <h2 class="card__title">Гора Монблан</h2>
-                        <button class="card__like-button" type="button" aria-label="Нравится"></button>
-                    </div>
-                </li>
-                <li class="card">
-                    <img src="./images/vinson-place.png" alt="" class="card__place">
-                    <div class="card__flex">
-                        <h2 class="card__title">Массив Винсон</h2>
-                        <button class="card__like-button" type="button" aria-label="Нравится"></button>
-                    </div>
-                </li>
-                <li class="card">
-                    <img src="./images/elbrus-place.png" alt="" class="card__place">
-                    <div class="card__flex">
-                        <h2 class="card__title">Гора Эльбрус</h2>
-                        <button class="card__like-button" type="button" aria-label="Нравится"></button>
-                    </div>
-                </li>
-                <li class="card">
-                    <img src="./images/everest-place.png" alt="" class="card__place">
-                    <div class="card__flex">
-                        <h2 class="card__title">Гора Джомолунгма</h2>
-                        <button class="card__like-button" type="button" aria-label="Нравится"></button>
-                    </div>
-                </li>
-                <li class="card">
-                    <img src="./images/aconcagua-place.png" alt="" class="card__place">
-                    <div class="card__flex">
-                        <h2 class="card__title">Гора Аконкагуа</h2>
-                        <button class="card__like-button" type="button" aria-label="Нравится"></button>
-                    </div>
-                </li>
-            </ul>
+                </div>
+            </template>
         </section>
     </main>
     <footer class="footer">
