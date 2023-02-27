@@ -1,20 +1,23 @@
 //ПЕРЕМЕННЫЕ
-//Edit button
-const editProfileButton = document.querySelector('.profile__edit-button');
 //Popup
 const popup = document.querySelector('.popup');
+//Edit popup
+const editPopup = document.querySelector('.popup_edit');
+const editProfileButton = document.querySelector('.profile__edit-button');
+const userName = document.querySelector('.profile__name');
+const userOccupation = document.querySelector('.profile__occupation');
+const userNameInput = document.querySelector('.popup__name');
+const userOccupationInput = document.querySelector('.popup__occupation');
+//Edit popup
+const addPopup = document.querySelector('.popup_add');
+const addCardButton = document.querySelector('.profile__add-button');
+const cardTitleInput = document.querySelector('.popup__title');
+const cardLinkInput = document.querySelector('.popup__link');
 //Popup close button
 const popupCloseButton = document.querySelector('.popup__close-button');
 //Form
 const formElement = document.querySelector('.popup__form');
-//Name
-const userName = document.querySelector('.profile__name');
-//Occupation
-const userOccupation = document.querySelector('.profile__occupation');
-//Name Input
-const userNameInput = document.querySelector('.popup__name');
-//Occupation Input
-const userOccupationInput = document.querySelector('.popup__occupation');
+
 //Cards Massif
 const cards = [
   {
@@ -62,13 +65,20 @@ cards.forEach(function (card) {
   photos.append(newCard);
 });
 
-//Openning and closing popup
-editProfileButton.addEventListener('click', openPopup);
-function openPopup() {
+//Openning and closing popups
+function openPopup(popup) {
   popup.classList.add('popup_opened');
+}
+
+editProfileButton.addEventListener('click', function () {
+  openPopup(editPopup);
   userNameInput.value = userName.textContent;
   userOccupationInput.value = userOccupation.textContent;
-}
+});
+
+addCardButton.addEventListener('click', function () {
+  openPopup(addPopup);
+});
 
 popupCloseButton.addEventListener('click', closePopup);
 function closePopup() {
