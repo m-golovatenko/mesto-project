@@ -16,7 +16,9 @@ const cardLinkInput = document.querySelector('.popup__link');
 //Popup close button
 const popupCloseButton = document.querySelector('.popup__close-button');
 //Form
-const formElement = document.querySelector('.popup__form');
+const editFormElement = document.querySelector('.popup__form_edit');
+const addFormElement = document.querySelector('.popup__form_add');
+//Like
 
 //Cards Massif
 const cards = [
@@ -56,13 +58,18 @@ const photos = document.querySelector('.photos');
 
 //Initial cards creation
 cards.forEach(function (card) {
-  const newCard = document.querySelector('.card__template').content.cloneNode(true);
-  const cardImage = newCard.querySelector('.card__place');
+  const initialCard = document.querySelector('.card__template').content.cloneNode(true);
+  const cardImage = initialCard.querySelector('.card__place');
   cardImage.setAttribute('src', card.image);
-  const cardTitle = newCard.querySelector('.card__title');
+  const cardTitle = initialCard.querySelector('.card__title');
   cardTitle.textContent = card.name;
-  const cardLike = newCard.querySelector('.card__like-button');
-  photos.append(newCard);
+
+  const cardLikeButton = initialCard
+    .querySelector('.card__like-button')
+    .addEventListener('click', function (evt) {
+      evt.target.classList.toggle('card__like-button_active');
+    });
+  photos.append(initialCard);
 });
 
 //Openning and closing popups
@@ -85,11 +92,11 @@ function closePopup() {
   popup.classList.remove('popup_opened');
 }
 
-function handleFormSubmit(evt) {
+//Profile changes
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   userName.textContent = userNameInput.value;
   userOccupation.textContent = userOccupationInput.value;
-  closePopup();
+  closePopup(editPopup);
 }
-
-formElement.addEventListener('submit', handleFormSubmit);
+editFormElement.addEventListener('submit', handleProfileFormSubmit);
