@@ -9,7 +9,7 @@ const userOccupation = document.querySelector('.profile__occupation');
 const userNameInput = document.querySelector('.popup__name');
 const userOccupationInput = document.querySelector('.popup__occupation');
 //Edit popup
-const addPopup = document.querySelector('.popup_add');
+const addCardPopup = document.querySelector('.popup_add');
 const addCardButton = document.querySelector('.profile__add-button');
 const cardTitleInput = document.querySelector('.popup__title');
 const cardLinkInput = document.querySelector('.popup__link');
@@ -77,22 +77,18 @@ function openPopup(popup) {
   popup.classList.add('popup_opened');
 }
 
+popupCloseButton.addEventListener('click', closePopup);
+function closePopup() {
+  popup.classList.remove('popup_opened');
+}
+
+//Edit popup
 editProfileButton.addEventListener('click', function () {
   openPopup(editPopup);
   userNameInput.value = userName.textContent;
   userOccupationInput.value = userOccupation.textContent;
 });
 
-addCardButton.addEventListener('click', function () {
-  openPopup(addPopup);
-});
-
-popupCloseButton.addEventListener('click', closePopup);
-function closePopup() {
-  popup.classList.remove('popup_opened');
-}
-
-//Profile changes
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   userName.textContent = userNameInput.value;
@@ -100,3 +96,32 @@ function handleProfileFormSubmit(evt) {
   closePopup(editPopup);
 }
 editFormElement.addEventListener('submit', handleProfileFormSubmit);
+
+//Add card
+// addCardButton.addEventListener('click', function () {
+//   openPopup(addCardPopup);
+// });
+
+// function addCard(name, image) {
+//   const cardTemplate = document.querySelector('.card__template').content;
+//   const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
+
+//   cardElement.querySelector('.card__title').textContent = name;
+//   cardElement.querySelector('.card__place').value = image;
+// }
+
+// function handleAddCardFormSubmit(evt) {
+//   evt.preventDefault();
+//   const nameInput = document.querySelector('.popup__title').value;
+//   const linkInput = document.querySelector('.popup__link').value;
+
+//   addCard(nameInput.value, linkInput.value);
+
+//   name.value = '';
+//   image.value = '';
+//   photos.append(addCard);
+
+//   closePopup(addCardPopup);
+// }
+
+// addFormElement.addEventListener('submit', handleAddCardFormSubmit);
