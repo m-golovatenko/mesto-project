@@ -6,15 +6,15 @@ const editPopup = document.querySelector('.popup_edit');
 const editProfileButton = document.querySelector('.profile__edit-button');
 const userName = document.querySelector('.profile__name');
 const userNameInput = document.querySelector('.input__name');
-const userOccupation = document.querySelector('.input__occupation');
-const userOccupationInput = document.querySelector('.popup__occupation');
+const userOccupation = document.querySelector('.profile__occupation');
+const userOccupationInput = document.querySelector('.input__occupation');
+const popupEditPopupCloseButton = editPopup.querySelector('.popup__close-button');
 //Add Card popup
 const addCardPopup = document.querySelector('.popup_add');
 const addCardButton = document.querySelector('.profile__add-button');
 const cardTitleInput = document.querySelector('.input__title');
 const cardLinkInput = document.querySelector('.input__link');
-//Popup close button
-const popupCloseButton = document.querySelector('.popup__close-button');
+const popupAddPopupCloseButton = addCardPopup.querySelector('.popup__close-button');
 //Form
 const editFormElement = document.querySelector('.popup__form_edit');
 const addCardFormElement = document.querySelector('.popup__form_add');
@@ -47,6 +47,21 @@ const cards = [
 ];
 //GridSection
 const photos = document.querySelector('.photos');
+
+//Edit Profile
+editProfileButton.addEventListener('click', function () {
+  openPopup(editPopup);
+  userNameInput.value = userName.textContent;
+  userOccupationInput.value = userOccupation.textContent;
+});
+
+function handleProfileFormSubmit(evt) {
+  evt.preventDefault();
+  userName.textContent = userNameInput.value;
+  userOccupation.textContent = userOccupationInput.value;
+  closePopup(editPopup);
+}
+editFormElement.addEventListener('submit', handleProfileFormSubmit);
 
 //Create Card Funcrion
 function createCard(name, link) {
@@ -100,22 +115,17 @@ function openPopup(popup) {
   popup.classList.add('popup_opened');
 }
 
-popupCloseButton.addEventListener('click', closePopup);
-function closePopup() {
+function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
-//Edit Profile
-editProfileButton.addEventListener('click', function () {
-  openPopup(editPopup);
-  userNameInput.value = userName.textContent;
-  userOccupationInput.value = userOccupation.textContent;
+//Close on button
+popupEditPopupCloseButton.addEventListener('click', function () {
+  closePopup(editPopup);
 });
 
-function handleProfileFormSubmit(evt) {
-  evt.preventDefault();
-  userName.textContent = userNameInput.value;
-  userOccupation.textContent = userOccupationInput.value;
-  closePopup(editPopup);
-}
-editFormElement.addEventListener('submit', handleProfileFormSubmit);
+popupAddPopupCloseButton.addEventListener('click', function () {
+  closePopup(addCardPopup);
+});
+
+//Image Scale
