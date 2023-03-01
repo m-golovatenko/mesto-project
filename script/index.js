@@ -104,6 +104,7 @@ addCardButton.addEventListener('click', function () {
 function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
   photos.prepend(createCard(cardTitleInput.value, cardLinkInput.value));
+  addCardFormElement.reset();
   closePopup(addCardPopup);
 }
 
