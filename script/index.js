@@ -1,6 +1,4 @@
 //ПЕРЕМЕННЫЕ
-//Popup
-const popup = document.querySelector('.popup');
 //Edit popup
 const editPopup = document.querySelector('.popup_edit');
 const editProfileButton = document.querySelector('.profile__edit-button');
@@ -8,16 +6,14 @@ const userName = document.querySelector('.profile__name');
 const userNameInput = document.querySelector('.input_type_name');
 const userOccupation = document.querySelector('.profile__occupation');
 const userOccupationInput = document.querySelector('.input_type_occupation');
-const popupEditPopupCloseButton = editPopup.querySelector('.popup__close-button');
 //Add Card popup
 const addCardPopup = document.querySelector('.popup_add');
 const addCardButton = document.querySelector('.profile__add-button');
 const cardTitleInput = document.querySelector('.input_type_title');
 const cardLinkInput = document.querySelector('.input_type_link');
-const popupAddPopupCloseButton = addCardPopup.querySelector('.popup__close-button');
 //Form
-const editFormElement = document.querySelector('.popup__form_edit');
-const addCardFormElement = document.querySelector('.popup__form_add');
+const editFormElement = document.forms['edit'];
+const addCardFormElement = document.forms['add'];
 //Cards Massif
 const cards = [
   {
@@ -48,10 +44,12 @@ const cards = [
 ];
 //GridSection
 const photos = document.querySelector('.photos');
-
 //Scale Image Popup
 const scalePhotoPopup = document.querySelector('.popup_photo-scale');
-const scalePhotoPopupCloseButton = scalePhotoPopup.querySelector('.popup__close-button');
+const scalePhotoImage = scalePhotoPopup.querySelector('.popup__scale-photo');
+const scalePhotoSubtitle = scalePhotoPopup.querySelector('.popup__subtitle');
+//Close Buttons
+const popupCloseButtons = document.querySelectorAll('.popup__close-button');
 
 //Edit Profile
 editProfileButton.addEventListener('click', function () {
@@ -78,9 +76,8 @@ function createCard(name, link) {
   cardImage.alt = name;
   cardImage.addEventListener('click', function () {
     openPopup(scalePhotoPopup);
-    const scalePhotoImage = scalePhotoPopup.querySelector('.popup__scale-photo');
     scalePhotoImage.src = cardImage.src;
-    const scalePhotoSubtitle = scalePhotoPopup.querySelector('.popup__subtitle');
+    scalePhotoImage.alt = name;
     scalePhotoSubtitle.textContent = name;
   });
   const cardLikeButton = newCard.querySelector('.card__like-button');
@@ -134,14 +131,9 @@ function closePopup(popup) {
 }
 
 //Close on button
-popupEditPopupCloseButton.addEventListener('click', function () {
-  closePopup(editPopup);
-});
-
-popupAddPopupCloseButton.addEventListener('click', function () {
-  closePopup(addCardPopup);
-});
-
-scalePhotoPopupCloseButton.addEventListener('click', function () {
-  closePopup(scalePhotoPopup);
+popupCloseButtons.forEach(button => {
+  const popup = button.closest('.popup');
+  button.addEventListener('click', function () {
+    closePopup(popup);
+  });
 });
