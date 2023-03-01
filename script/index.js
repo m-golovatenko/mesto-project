@@ -5,15 +5,15 @@ const popup = document.querySelector('.popup');
 const editPopup = document.querySelector('.popup_edit');
 const editProfileButton = document.querySelector('.profile__edit-button');
 const userName = document.querySelector('.profile__name');
-const userNameInput = document.querySelector('.input__name');
+const userNameInput = document.querySelector('.input_type_name');
 const userOccupation = document.querySelector('.profile__occupation');
-const userOccupationInput = document.querySelector('.input__occupation');
+const userOccupationInput = document.querySelector('.input_type_occupation');
 const popupEditPopupCloseButton = editPopup.querySelector('.popup__close-button');
 //Add Card popup
 const addCardPopup = document.querySelector('.popup_add');
 const addCardButton = document.querySelector('.profile__add-button');
-const cardTitleInput = document.querySelector('.input__title');
-const cardLinkInput = document.querySelector('.input__link');
+const cardTitleInput = document.querySelector('.input_type_title');
+const cardLinkInput = document.querySelector('.input_type_link');
 const popupAddPopupCloseButton = addCardPopup.querySelector('.popup__close-button');
 //Form
 const editFormElement = document.querySelector('.popup__form_edit');
