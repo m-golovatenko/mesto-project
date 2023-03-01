@@ -4,3 +4,7 @@
   object-position: center top;
   object-fit: cover;
 }
+
+.card__place:hover {
+  cursor: pointer;
+}

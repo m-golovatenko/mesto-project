@@ -48,6 +48,10 @@ const cards = [
 //GridSection
 const photos = document.querySelector('.photos');
 
+//Scale Image Popup
+const scalePhotoPopup = document.querySelector('.popup_photo-scale');
+const scalePhotoPopupCloseButton = scalePhotoPopup.querySelector('.popup__close-button');
+
 //Edit Profile
 editProfileButton.addEventListener('click', function () {
   openPopup(editPopup);
@@ -70,6 +74,13 @@ function createCard(name, link) {
   cardTitle.textContent = name;
   const cardImage = newCard.querySelector('.card__place');
   cardImage.setAttribute('src', link);
+  cardImage.addEventListener('click', function () {
+    openPopup(scalePhotoPopup);
+    const scalePhotoImage = scalePhotoPopup.querySelector('.popup__scale-photo');
+    scalePhotoImage.src = cardImage.src;
+    const scalePhotoSubtitle = scalePhotoPopup.querySelector('.popup__subtitle');
+    scalePhotoSubtitle.textContent = name;
+  });
   const cardLikeButton = newCard.querySelector('.card__like-button');
   cardLikeButton.addEventListener('click', handleLikeButtonClick);
   const cardDeleteButton = newCard.querySelector('.card__delete-button');
@@ -128,4 +139,6 @@ popupAddPopupCloseButton.addEventListener('click', function () {
   closePopup(addCardPopup);
 });
 
-//Image Scale
+scalePhotoPopupCloseButton.addEventListener('click', function () {
+  closePopup(scalePhotoPopup);
+});
