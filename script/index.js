@@ -22,6 +22,7 @@ const addCardFormElement = document.querySelector('.popup__form_add');
 const cards = [
   {
     name: 'Гора Килиманджаро',
+    alt: '',
     link: 'https://images.unsplash.com/photo-1631646109206-4b5616964f84?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
   },
   {
@@ -74,6 +75,7 @@ function createCard(name, link) {
   cardTitle.textContent = name;
   const cardImage = newCard.querySelector('.card__place');
   cardImage.setAttribute('src', link);
+  cardImage.alt = name;
   cardImage.addEventListener('click', function () {
     openPopup(scalePhotoPopup);
     const scalePhotoImage = scalePhotoPopup.querySelector('.popup__scale-photo');
