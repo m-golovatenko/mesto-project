@@ -14,6 +14,9 @@
 @import url(../blocks/profile/__edit-button/profile__edit-button.css);
 @import url(../blocks/profile/__occupation/profile__occupation.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
+@import url(../blocks/input-error/input-error.css);
+@import url(../blocks/input/_type/_error/input_type_error.css);
+@import url(../blocks/input-error/_visible/input-error_visible.css);
 /*PHOTOS*/
 @import url(../blocks/photos/photos.css);
 @import url(../blocks/card/card.css);
@@ -35,6 +38,7 @@
 @import url(../blocks/popup/__name/popup__name.css);
 @import url(../blocks/popup/__occupation/popup__occupation.css);
 @import url(../blocks/popup/__save-button/popup__save-button.css);
+@import url(../blocks/popup/__save-button/_disasbled/popup__save-button_disabled.css);
 @import url(../blocks/popup/__close-button/popup__close-button.css);
 /*SCALE PHOTO POPUP*/
 @import url(../blocks/popup/__photo-scale-container/popup_photo-scale.css);
