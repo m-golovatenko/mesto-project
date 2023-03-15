@@ -139,10 +139,21 @@ popupCloseButtons.forEach(button => {
 });
 
 //Close on esc
-document.addEventListener('keydown', function (evt) {
+function closeOnEscape(evt) {
   if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_opened');
     closePopup(openedPopup);
   }
-});
+}
+
+document.addEventListener('keydown', closeOnEscape);
 //Close on overlay
+const popupList = document.querySelectorAll('.popup');
+
+popupList.forEach(popup => {
+  popup.addEventListener('click', function (evt) {
+    if (evt.currentTarget === evt.target) {
+      closePopup(popup);
+    }
+  });
+});
