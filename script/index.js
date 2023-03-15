@@ -137,3 +137,12 @@ popupCloseButtons.forEach(button => {
     closePopup(popup);
   });
 });
+
+//Close on esc
+document.addEventListener('keydown', function (evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  }
+});
+//Close on overlay
