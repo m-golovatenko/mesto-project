@@ -1,4 +1,6 @@
 //ПЕРЕМЕННЫЕ
+//Popups
+const popupList = document.querySelectorAll('.popup');
 //Edit popup
 const editPopup = document.querySelector('.popup_edit');
 const editProfileButton = document.querySelector('.profile__edit-button');
@@ -147,9 +149,8 @@ function closeOnEscape(evt) {
 }
 
 document.addEventListener('keydown', closeOnEscape);
-//Close on overlay
-const popupList = document.querySelectorAll('.popup');
 
+//Close on overlay
 popupList.forEach(popup => {
   popup.addEventListener('click', function (evt) {
     if (evt.currentTarget === evt.target) {

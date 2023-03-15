@@ -1,7 +1,15 @@
 .input-error {
+  margin-top: 5px;
+  display: block;
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
   color: #ff0000;
-  opacity: 0;
+  visibility: 1;
+  min-height: 30px;
+  height: 100%;
+}
+
+.input-error:last-of-type {
+  margin-bottom: 18px;
 }

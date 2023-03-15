@@ -15,8 +15,6 @@
 @import url(../blocks/profile/__occupation/profile__occupation.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
 @import url(../blocks/input-error/input-error.css);
-@import url(../blocks/input/_type/_error/input_type_error.css);
-@import url(../blocks/input-error/_visible/input-error_visible.css);
 /*PHOTOS*/
 @import url(../blocks/photos/photos.css);
 @import url(../blocks/card/card.css);
