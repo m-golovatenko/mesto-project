@@ -5,11 +5,17 @@
   font-size: 12px;
   line-height: 15px;
   color: #ff0000;
-  visibility: 1;
-  min-height: 30px;
+  visibility: hidden;
+  min-height: 25px;
   height: 100%;
 }
 
 .input-error:last-of-type {
   margin-bottom: 18px;
+}
+
+@media (max-width: 540px) {
+  .input-error:last-of-type {
+    margin-bottom: 15px;
+  }
 }

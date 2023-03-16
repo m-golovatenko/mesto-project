@@ -51,12 +51,12 @@
         <div class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
             <form class="popup__form popup__form_edit" name="edit">
-                <input class="input input_type_name" type="text" name="name" placeholder="Имя" minlength="2"
-                    maxlength="40" required>
-                <span class="input-error input-error_type_name"></span>
-                <input class="input input_type_occupation" type="text" placeholder="О себе" name="occupation"
-                    minlength="2" maxlength="200" required>
-                <span class="input-error input-error_type_occupation"></span>
+                <input id="name-input" class="input input_type_name" type="text" name="name" placeholder="Имя"
+                    minlength="2" maxlength="40" required>
+                <span class="input-error name-input-error"></span>
+                <input id="text-input" class="input input_type_occupation" type="text" placeholder="О себе"
+                    name="occupation" minlength="2" maxlength="200" required>
+                <span class="input-error text-input-error"></span>
                 <button class="popup__save-button" type="submit" aria-label="Сохранить">Сохранить</button>
             </form>
             <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
@@ -67,12 +67,12 @@
         <div class="popup__container popup__container-card">
             <h2 class="popup__title">Новое Место</h2>
             <form class="popup__form popup__form_add" name="add">
-                <input class="input input_type_title" type="text" name="title" placeholder="Название" minlength="2"
-                    maxlength="30" required>
-                <span class="input-error input-error_type_title"></span>
-                <input class="input input_type_link" type="url" name="link" placeholder="Ссылка на изображение"
-                    required>
-                <span class="input-error input-error_type_link"></span>
+                <input id="title-input" class="input input_type_title" type="text" name="title" placeholder="Название"
+                    minlength="2" maxlength="30" required>
+                <span class="input-error title-input-error"></span>
+                <input id="link-input" class="input input_type_link" type="url" name="link"
+                    placeholder="Ссылка на изображение" required>
+                <span class="input-error link-input-error"></span>
                 <button class="popup__save-button" type="submit" aria-label="Сохранить">Сохранить</button>
             </form>
             <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
