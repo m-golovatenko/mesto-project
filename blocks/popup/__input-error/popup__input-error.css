@@ -5,7 +5,7 @@
   font-size: 12px;
   line-height: 15px;
   color: #ff0000;
-  visibility: hidden;
+  opacity: 0;
   min-height: 25px;
   height: 100%;
 }
