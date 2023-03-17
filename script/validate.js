@@ -57,8 +57,8 @@ function toggleButtonState(inputList, buttonElement) {
   }
 }
 
-//Listerners settings
-function setEventListerners(formElement, config) {
+//Listeners settings
+function setEventListeners(formElement, config) {
   const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
   const buttonElement = formElement.querySelector(config.saveButtonSelector);
   toggleButtonState(inputList, buttonElement, config);
@@ -74,21 +74,8 @@ function setEventListerners(formElement, config) {
 function enableValidation(config) {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
   formList.forEach(formElement => {
-    formElement.addEventListener('submit', function (evt) {
-      evt.preventDefault();
-    });
-
-    setEventListerners(formElement, config);
+    setEventListeners(formElement, config);
   });
-}
-
-//Reset Validation
-function resetErrors(inputList) {
-  inputList.forEach(inputElement => {
-    hideError(inputElement);
-  });
-
-  toggleButtonState();
 }
 
 //Reset Validation

@@ -5,10 +5,8 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  /* display: none; */
   margin: 0;
-
   opacity: 0;
   visibility: hidden;
-  transition: visibility 0s, opacity 0.5s ease;
+  transition: visibility 0.5s, opacity 0.5s ease;
 }
