@@ -2,7 +2,7 @@
 const config = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__save-button',
+  saveButtonSelector: '.popup__save-button',
   inactiveButtonClass: 'popup__save-button_disabled',
   inputErrorClass: 'popup__input_disabled',
   errorClass: 'popup__input-error_active'
@@ -60,7 +60,7 @@ function toggleButtonState(inputList, buttonElement) {
 //Listerners settings
 function setEventListerners(formElement, config) {
   const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
-  const buttonElement = formElement.querySelector(config.submitButtonSelector);
+  const buttonElement = formElement.querySelector(config.saveButtonSelector);
   toggleButtonState(inputList, buttonElement, config);
   inputList.forEach(inputElement => {
     inputElement.addEventListener('input', function () {
@@ -92,5 +92,14 @@ function resetErrors(inputList) {
 }
 
 //Reset Validation
+const resetValidation = (formElement, config) => {
+  const inputs = Array.from(formElement.querySelectorAll(config.inputSelector));
+  const saveButton = formElement.querySelector(config.saveButtonSelector);
+  inputs.forEach(inputElement => {
+    hideError(formElement, inputElement, config);
+  });
+
+  toggleButtonState(inputs, saveButton, config);
+};
 
 enableValidation(config);

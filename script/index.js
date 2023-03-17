@@ -30,6 +30,7 @@ editProfileButton.addEventListener('click', function () {
   openPopup(editPopup);
   userNameInput.value = userName.textContent;
   userOccupationInput.value = userOccupation.textContent;
+  resetValidation(editPopup, config);
 });
 
 function handleProfileFormSubmit(evt) {
@@ -71,7 +72,9 @@ cards.forEach(initialCard);
 
 //Add card
 addCardButton.addEventListener('click', function () {
+  addCardFormElement.reset();
   openPopup(addCardPopup);
+  resetValidation(addCardPopup, config);
 });
 
 function handleAddCardFormSubmit(evt) {
