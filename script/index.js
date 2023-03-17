@@ -130,7 +130,7 @@ document.addEventListener('keydown', closeOnEscape);
 //Close on overlay
 popupList.forEach(popup => {
   popup.addEventListener('click', function (evt) {
-    if (evt.currentTarget === evt.target) {
+    if (evt.target.classList.contains('popup_opened')) {
       closePopup(popup);
     }
   });
