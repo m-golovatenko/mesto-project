@@ -38,7 +38,7 @@
 @import url(../blocks/popup/__name/popup__name.css);
 @import url(../blocks/popup/__occupation/popup__occupation.css);
 @import url(../blocks/popup/__save-button/popup__save-button.css);
-@import url(../blocks/popup/__save-button/_disasbled/popup__save-button_disabled.css);
+@import url(../blocks/popup/__save-button/_disabled/popup__save-button_disabled.css);
 @import url(../blocks/popup/__close-button/popup__close-button.css);
 /*SCALE PHOTO POPUP*/
 @import url(../blocks/popup/__photo-scale-container/popup_photo-scale.css);

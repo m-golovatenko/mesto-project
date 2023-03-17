@@ -50,13 +50,15 @@
     <section class="popup popup_edit">
         <div class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form popup__form_edit" name="edit">
-                <input id="name-input" class="input input_type_name" type="text" name="name" placeholder="Имя"
+            <form class="popup__form popup__form_edit" name="edit" novalidate>
+                <input id="input-name" class="input input_type_name" type="text" name="name" placeholder="Имя"
                     minlength="2" maxlength="40" required>
-                <span class="input-error name-input-error"></span>
-                <input id="text-input" class="input input_type_occupation" type="text" placeholder="О себе"
+                <span class="input-error input-name-error"></span>
+
+                <input id="input-occupation" class="input input_type_occupation" type="text" placeholder="О себе"
                     name="occupation" minlength="2" maxlength="200" required>
-                <span class="input-error text-input-error"></span>
+                <span class="input-error input-occupation-error"></span>
+
                 <button class="popup__save-button" type="submit" aria-label="Сохранить">Сохранить</button>
             </form>
             <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
@@ -66,13 +68,15 @@
     <section class="popup popup_add">
         <div class="popup__container popup__container-card">
             <h2 class="popup__title">Новое Место</h2>
-            <form class="popup__form popup__form_add" name="add">
-                <input id="title-input" class="input input_type_title" type="text" name="title" placeholder="Название"
+            <form class="popup__form popup__form_add" name="add" novalidate>
+                <input id="input-title" class="input input_type_title" type="text" name="title" placeholder="Название"
                     minlength="2" maxlength="30" required>
-                <span class="input-error title-input-error"></span>
-                <input id="link-input" class="input input_type_link" type="url" name="link"
+                <span class="input-error input-title-error"></span>
+
+                <input id="input-link" class="input input_type_link" type="url" name="link"
                     placeholder="Ссылка на изображение" required>
-                <span class="input-error link-input-error"></span>
+                <span class="input-error input-link-error"></span>
+
                 <button class="popup__save-button" type="submit" aria-label="Сохранить">Сохранить</button>
             </form>
             <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
@@ -86,9 +90,9 @@
             <figcaption class="popup__subtitle"></figcaption>
         </div>
     </figure>
-
-    <script src="./script/index.js"></script>
+    <script src="./script/card.js"></script>
     <script src="./script/validate.js"></script>
+    <script src="./script/index.js"></script>
 </body>
 
 </html>
