@@ -1,12 +1,13 @@
 //Config object
 const config = {
   formSelector: '.popup__form',
-  inputSelector: '.input',
+  inputSelector: '.popup__input',
   submitButtonSelector: '.popup__save-button',
   inactiveButtonClass: 'popup__save-button_disabled',
-  inputErrorClass: 'input_disabled',
-  errorClass: 'input-error_active'
+  inputErrorClass: 'popup__input_disabled',
+  errorClass: 'popup__input-error_active'
 };
+
 //Error functions
 function showError(formElement, inputElement, validationMessage, config) {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
@@ -21,6 +22,7 @@ function hideError(formElement, inputElement, config) {
   errorElement.textContent = '';
   errorElement.classList.remove(config.errorClass);
 }
+
 //Validity check function
 function isValid(config, formElement, inputElement) {
   if (!inputElement.validity.valid) {
@@ -29,6 +31,7 @@ function isValid(config, formElement, inputElement) {
     hideError(formElement, inputElement, config);
   }
 }
+
 //Button Change
 function hasInvalidInput(inputList) {
   return inputList.some(inputElement => {
@@ -53,6 +56,7 @@ function toggleButtonState(inputList, buttonElement) {
     enableButton(config, buttonElement);
   }
 }
+
 //Listerners settings
 function setEventListerners(formElement, config) {
   const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
@@ -65,6 +69,7 @@ function setEventListerners(formElement, config) {
     });
   });
 }
+
 //Validation
 function enableValidation(config) {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
@@ -85,5 +90,7 @@ function resetErrors(inputList) {
 
   toggleButtonState();
 }
+
+//Reset Validation
 
 enableValidation(config);

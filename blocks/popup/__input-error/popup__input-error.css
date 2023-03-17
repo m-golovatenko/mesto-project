@@ -1,4 +1,4 @@
-.input-error {
+.popup__input-error {
   margin-top: 5px;
   display: block;
   font-weight: 400;
@@ -10,12 +10,12 @@
   height: 100%;
 }
 
-.input-error:last-of-type {
+.popup__input-error:last-of-type {
   margin-bottom: 18px;
 }
 
 @media (max-width: 540px) {
-  .input-error:last-of-type {
+  .popup__input-error:last-of-type {
     margin-bottom: 15px;
   }
 }

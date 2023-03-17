@@ -1,4 +1,4 @@
-.input {
+.popup__input {
   margin: 0;
   width: 100%;
   min-height: 27px;
@@ -9,16 +9,16 @@
   line-height: 17px;
 }
 
-.input:focus {
+.popup__input:focus {
   border: 1px solid #007aff;
 }
 
-.input:active {
+.popup__input:active {
   border: 1px solid #007aff;
 }
 
 @media (max-width: 540px) {
-  .input {
+  .popup__input {
     font-size: 14px;
     line-height: 17px;
   }
