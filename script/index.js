@@ -1,5 +1,6 @@
 import { cards, config } from './const.js';
 import { FormValidator } from './FormValidator.js';
+import { Card } from './Card.js';
 //VARIABLE
 //Popups
 const popupList = document.querySelectorAll('.popup');
