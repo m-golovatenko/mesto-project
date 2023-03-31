@@ -1,9 +1,4 @@
-import { openPopup } from './index.js';
-
-//Scale Image Popup
-const popupScalePhoto = document.querySelector('.popup_photo-scale');
-const imageScalePhoto = popupScalePhoto.querySelector('.popup__scale-photo');
-const subtitleScalePhoto = popupScalePhoto.querySelector('.popup__subtitle');
+import { handleOpenScalePhotoPopup } from './index.js';
 
 //Card Class (card and button listeners creation)
 class Card {
@@ -30,12 +25,6 @@ class Card {
     this._element.remove();
   }
 
-  _handleOpenScalePhotoPopup() {
-    openPopup(popupScalePhoto);
-    imageScalePhoto.src = this._link;
-    subtitleScalePhoto.textContent = this._name;
-  }
-
   _setEventListeners() {
     this._cardLikeButton.addEventListener('click', () => {
       this._handleLikeButtonClick();
@@ -46,8 +35,7 @@ class Card {
     });
 
     this._cardImage.addEventListener('click', () => {
-      this._handleOpenScalePhotoPopup();
-      this._handleCloseScalePhotoPopup();
+      handleOpenScalePhotoPopup(this._name, this._link);
     });
   }
 

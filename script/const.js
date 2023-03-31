@@ -27,4 +27,14 @@ const cards = [
   }
 ];
 
-export { cards };
+//Config object
+const config = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  saveButtonSelector: '.popup__save-button',
+  inactiveButtonClass: 'popup__save-button_disabled',
+  inputErrorClass: 'popup__input_disabled',
+  errorClass: 'popup__input-error_active'
+};
+
+export { cards, config };

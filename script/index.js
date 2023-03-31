@@ -1,6 +1,6 @@
-import { cards } from './const.js';
-import { Card } from './card.js';
-import { FormValidator, config } from './FormValidator.js';
+import { cards, config } from './const.js';
+import { Card } from './Card.js';
+import { FormValidator } from './FormValidator.js';
 
 //VARIABLE
 //Popups
@@ -17,6 +17,10 @@ const popupAddCard = document.querySelector('.popup_add');
 const buttonAddCard = document.querySelector('.profile__add-button');
 const cardTitleInput = document.querySelector('.popup__input_type_title');
 const cardLinkInput = document.querySelector('.popup__input_type_link');
+//Scale Image Popup
+const popupScalePhoto = document.querySelector('.popup_photo-scale');
+const imageScalePhoto = popupScalePhoto.querySelector('.popup__scale-photo');
+const subtitleScalePhoto = popupScalePhoto.querySelector('.popup__subtitle');
 //Form
 const formEditElement = document.forms['edit'];
 const formAddCardElement = document.forms['add'];
@@ -42,7 +46,6 @@ function openEditPopup() {
   openPopup(popupEdit);
   userNameInput.value = userName.textContent;
   userOccupationInput.value = userOccupation.textContent;
-  // resetValidation(popupEdit, config);
   formEditPopupValidator.resetValidation();
 }
 
@@ -57,7 +60,6 @@ function handleProfileFormSubmit(evt) {
 function openAddCardPopup() {
   formAddCardElement.reset();
   openPopup(popupAddCard);
-  // resetValidation(popupAddCard, config);
   formAddPopupValidator.resetValidation();
 }
 
@@ -76,6 +78,14 @@ function openPopup(popup) {
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closeOnEscape);
+}
+
+//Open Scale Photo
+function handleOpenScalePhotoPopup(name, link) {
+  openPopup(popupScalePhoto);
+  imageScalePhoto.src = link;
+  imageScalePhoto.alt = name;
+  subtitleScalePhoto.textContent = name;
 }
 
 //Close on button
@@ -118,39 +128,4 @@ formEditPopupValidator.enableValidation();
 const formAddPopupValidator = new FormValidator(config, formAddCardElement);
 formAddPopupValidator.enableValidation();
 
-export { openPopup };
-//Previous code
-//New card template
-// const newCardTemplate = document.querySelector('.card__template').content;
-// function createCard(card) {
-//   const newCard = newCardTemplate.querySelector('.card').cloneNode(true);
-//   const cardTitle = newCard.querySelector('.card__title');
-//   cardTitle.textContent = card.name;
-//   const cardImage = newCard.querySelector('.card__place');
-//   cardImage.src = card.link;
-//   cardImage.alt = card.name;
-//   cardImage.addEventListener('click', function () {
-//     openPopup(popupScalePhoto);
-//     imageScalePhoto.src = card.link;
-//     imageScalePhoto.alt = card.name;
-//     subtitleScalePhoto.textContent = card.name;
-//   });
-//   const cardLikeButton = newCard.querySelector('.card__like-button');
-//   cardLikeButton.addEventListener('click', handleLikeButtonClick);
-//   const cardDeleteButton = newCard.querySelector('.card__delete-button');
-//   cardDeleteButton.addEventListener('click', handleDeleteButtonClick);
-
-//   return newCard;
-// }
-
-//Like card
-// function handleLikeButtonClick(evt) {
-//   evt.target.classList.toggle('card__like-button_active');
-// }
-
-//Delete card
-// function handleDeleteButtonClick(evt) {
-//   const button = evt.target;
-//   const card = button.closest('.card');
-//   card.remove();
-// }
+export { handleOpenScalePhotoPopup };
