@@ -27,4 +27,4 @@ const cards = [
   }
 ];
 
-// export { cards };
+export { cards };
