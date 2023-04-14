@@ -1,6 +1,7 @@
 import { cards, config } from './const.js';
 import { FormValidator } from './FormValidator.js';
 import { Card } from './Card.js';
+import Section from './Section.js';
 //VARIABLE
 //Popups
 const popupList = document.querySelectorAll('.popup');
@@ -29,17 +30,40 @@ const photosContainer = document.querySelector('.photos');
 const popupCloseButtons = document.querySelectorAll('.popup__close-button');
 
 //FUNCTIONS
+//Initial card creation
+const initialCardList = new Section(
+  {
+    items: cards,
+    renderer: card => {
+      const newCard = new Card(card, '.card__template');
+      const cardElement = newCard.createCard();
+      initialCardList.addItem(cardElement);
+    }
+  },
+  '.photos'
+);
+
+initialCardList.renderItems();
+
+//Add new card
 function renderCard(card) {
   const newCard = new Card(card, '.card__template');
   const cardElement = newCard.createCard();
   return cardElement;
 }
 
-//Initial cards creation
-cards.forEach(card => {
-  photosContainer.append(renderCard(card));
-});
+//Add card popup
+function openAddCardPopup() {
+  formAddCardElement.reset();
+  openPopup(popupAddCard);
+  formAddPopupValidator.resetValidation();
+}
 
+function handleAddCardFormSubmit(evt) {
+  evt.preventDefault();
+  photosContainer.prepend(renderCard({ name: cardTitleInput.value, link: cardLinkInput.value }));
+  closePopup(popupAddCard);
+}
 //Edit Profile
 function openEditPopup() {
   openPopup(popupEdit);
@@ -53,19 +77,6 @@ function handleProfileFormSubmit(evt) {
   userName.textContent = userNameInput.value;
   userOccupation.textContent = userOccupationInput.value;
   closePopup(popupEdit);
-}
-
-//Add card
-function openAddCardPopup() {
-  formAddCardElement.reset();
-  openPopup(popupAddCard);
-  formAddPopupValidator.resetValidation();
-}
-
-function handleAddCardFormSubmit(evt) {
-  evt.preventDefault();
-  photosContainer.prepend(renderCard({ name: cardTitleInput.value, link: cardLinkInput.value }));
-  closePopup(popupAddCard);
 }
 
 //Open and close popups
