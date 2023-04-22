@@ -10,8 +10,8 @@ import {
   userNameInput,
   userOccupationInput
 } from '../script/const.js';
-import { FormValidator } from '../script/FormValidator.js';
-import { Card } from '../script/Card.js';
+import FormValidator from '../script/FormValidator.js';
+import Card from '../script/Card.js';
 import Section from '../script/Section.js';
 import UserInfo from '../script/UserInfo.js';
 import PopupWithImage from '../script/PopupWithImage.js';
