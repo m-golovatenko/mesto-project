@@ -1,11 +1,10 @@
-import { handleOpenScalePhotoPopup } from './index.js';
-
 //Card Class (card and button listeners creation)
 class Card {
-  constructor(data, templateSelector) {
+  constructor(data, handleCardClick, templateSelector) {
     this._name = data.name;
     this._link = data.link;
     this._cardTemplateSelector = templateSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -35,11 +34,11 @@ class Card {
     });
 
     this._cardImage.addEventListener('click', () => {
-      handleOpenScalePhotoPopup(this._name, this._link);
+      this._handleCardClick(this._name, this._link);
     });
   }
 
-  createCard() {
+  renderCard() {
     this._element = this._getTemplate();
     this._cardImage = this._element.querySelector('.card__place');
     this._cardImage.src = this._link;
