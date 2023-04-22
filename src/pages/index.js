@@ -1,3 +1,6 @@
+import 'core-js/actual';
+import './index.css';
+
 import {
   cards,
   config,

@@ -8,7 +8,6 @@
     <meta name="description" content="Первый проект по JavaScript Маши Головатенко на Яндекс.Практикуме">
     <meta name="keywords" content="интерактивная страница, путешествия, фотографии">
     <meta name="author" content="Маша Головатенко">
-    <link rel="stylesheet" href="./src/pages/index.css">
     <title>Место</title>
 </head>
 
@@ -19,7 +18,7 @@
 
     <main class="container">
         <section class="profile">
-            <img src="./src/images/profile__avatar.png" alt="Улыбающийся мужчина в красной шапке."
+            <img src="<%=require('./images/profile__avatar.png')%>" alt="Улыбающийся мужчина в красной шапке."
                 class="profile__avatar">
             <div class="profile__info">
                 <div class="profile__flex">
@@ -91,7 +90,6 @@
             <figcaption class="popup__subtitle"></figcaption>
         </div>
     </figure>
-    <script type="module" src="./src/pages/index.js"></script>
 </body>
 
 </html>
