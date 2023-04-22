@@ -45,17 +45,11 @@ export const formEditElement = document.forms['edit'];
 export const formAddCardElement = document.forms['add'];
 //Edit
 export const buttonEditProfile = document.querySelector('.profile__edit-button');
-export const userName = document.querySelector('.profile__name');
-export const userOccupation = document.querySelector('.profile__occupation');
 export const userNameInput = formEditElement.elements.name;
 export const userOccupationInput = formEditElement.elements.occupation;
 //Add Card popup
 export const buttonAddCard = document.querySelector('.profile__add-button');
 export const cardTitleInput = formAddCardElement.elements.title;
 export const cardLinkInput = formAddCardElement.elements.link;
-//GridSection
-export const photosContainer = document.querySelector('.photos');
-//Close Buttons
-export const popupCloseButtons = document.querySelectorAll('.popup__close-button');
 
 export { cards, config };
