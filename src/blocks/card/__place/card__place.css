@@ -3,6 +3,7 @@
   height: 282px;
   object-position: center top;
   object-fit: cover;
+  display: block;
 }
 
 .card__place:hover {

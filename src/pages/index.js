@@ -90,7 +90,7 @@ function handleEditProfilePopupOpen() {
   const { name, occupation } = userProfile.getUserInfo();
   userNameInput.value = name;
   userOccupationInput.value = occupation;
-  formAddPopupValidator.resetValidation();
+  formEditPopupValidator.resetValidation();
 }
 
 buttonEditProfile.addEventListener('click', () => {
