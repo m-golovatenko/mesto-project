@@ -49,12 +49,8 @@ const cardList = new Section(
 cardList.renderItems();
 
 //Add Card Popup
-function handleFormAddCardSubmit() {
-  const cardData = {
-    name: cardTitleInput.value,
-    link: cardLinkInput.value
-  };
-  const cardElement = createCard(cardData);
+function handleFormAddCardSubmit(formValues) {
+  const cardElement = createCard({ name: formValues.title, link: formValues.link });
   cardList.addNewItem(cardElement);
 }
 
@@ -69,12 +65,8 @@ function handleAddCardPopupOpen() {
 buttonAddCard.addEventListener('click', handleAddCardPopupOpen);
 
 //Edti Profile Popup
-function handleFormEditProfileSubmit() {
-  const profileData = {
-    name: userNameInput.value,
-    occupation: userOccupationInput.value
-  };
-  userProfile.setUserInfo(profileData);
+function handleFormEditProfileSubmit(formValues) {
+  userProfile.setUserInfo({ name: formValues.name, occupation: formValues.occupation });
 }
 
 const userProfile = new UserInfo({
@@ -87,9 +79,9 @@ popupEditProfile.setEventListeners();
 
 function handleEditProfilePopupOpen() {
   popupEditProfile.open();
-  const { name, occupation } = userProfile.getUserInfo();
-  userNameInput.value = name;
-  userOccupationInput.value = occupation;
+  const initialInfo = userProfile.getUserInfo();
+  userNameInput.value = initialInfo.name;
+  userOccupationInput.value = initialInfo.occupation;
   formEditPopupValidator.resetValidation();
 }
 
