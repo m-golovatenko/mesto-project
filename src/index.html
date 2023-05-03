@@ -18,8 +18,10 @@
 
     <main class="container">
         <section class="profile">
-            <img src="<%=require('./images/profile__avatar.png')%>" alt="Улыбающийся мужчина в красной шапке."
-                class="profile__avatar">
+            <div class="profile__avatar-overlay">
+                <img src="<%=require('./images/profile__avatar.png')%>" alt="Улыбающийся мужчина в красной шапке."
+                    class="profile__avatar">
+            </div>
             <div class="profile__info">
                 <div class="profile__flex">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -77,6 +79,19 @@
                     placeholder="Ссылка на изображение" required>
                 <span class="popup__input-error popup__input-link-error"></span>
 
+                <button class="popup__save-button" type="submit" aria-label="Сохранить">Сохранить</button>
+            </form>
+            <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
+        </div>
+    </section>
+
+    <section class="popup popup_change-avatar">
+        <div class="popup__container">
+            <h2 class="popup__title">Обновить аватар</h2>
+            <form class="popup__form" name="avatar" novalidate>
+                <input type="url" name="avatar" id="popup__input-avatar" class="popup__input popup__input_type_avatar"
+                    placeholder="Ссылка на картинку" required>
+                <span class="popup__input-error popup__input-avatar-error"></span>
                 <button class="popup__save-button" type="submit" aria-label="Сохранить">Сохранить</button>
             </form>
             <button class="popup__close-button" type="button" aria-label="Закрыть"></button>

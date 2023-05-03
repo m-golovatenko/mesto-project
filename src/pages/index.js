@@ -19,6 +19,7 @@ import Section from '../script/Section.js';
 import UserInfo from '../script/UserInfo.js';
 import PopupWithImage from '../script/PopupWithImage.js';
 import PopupWithForm from '../script/PopupWithForm.js';
+import Api from '../script/Api';
 
 //FUNCTIONS
 //ScalePhoto Popup
@@ -28,6 +29,15 @@ popupScalePhoto.setEventListeners();
 function handleAddCardCardClick(name, link) {
   popupScalePhoto.open(name, link);
 }
+
+//API
+// const api = new Api({
+//   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-65',
+//   headers: {
+//     authorization: '2a978c46-dbca-4ec1-9e35-2fcdefb9bfb3',
+//     'Content-Type': 'application/json'
+//   }
+// });
 
 // Render Card in DOM
 function createCard(items) {
