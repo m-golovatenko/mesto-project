@@ -29,4 +29,4 @@ export const userOccupationInput = formEditElement.elements.occupation;
 //Add Card popup
 export const buttonAddCard = document.querySelector('.profile__add-button');
 //Edit Avatar Popup
-export const avatar = document.querySelector('.profile__avatar');
+export const avatarButton = document.querySelector('.profile__avatar-overlay');

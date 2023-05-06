@@ -11,7 +11,7 @@ import {
   userOccupationInput,
   apiAuthorization,
   formEditAvatarElement,
-  avatar
+  avatarButton
 } from '../script/const.js';
 import FormValidator from '../script/FormValidator.js';
 import Card from '../script/Card.js';
@@ -79,15 +79,7 @@ function handleDeleteCard(card) {
 }
 
 function handleLikeCard(card) {
-  if (!card.isLiked()) {
-    api
-      .likeCard(card.cardId)
-      .then(res => {
-        card.like();
-        card.countLikes(res);
-      })
-      .catch(err => console.error(`Ошибка при постановке лайка: ${err}`));
-  } else {
+  if (card.isLiked()) {
     api
       .unlikeCard(card.cardId)
       .then(res => {
@@ -95,6 +87,14 @@ function handleLikeCard(card) {
         card.countLikes(res);
       })
       .catch(err => console.error(`Ошибка при снятии лайка: ${err}`));
+  } else {
+    api
+      .likeCard(card.cardId)
+      .then(res => {
+        card.like();
+        card.countLikes(res);
+      })
+      .catch(err => console.error(`Ошибка при постановке лайка: ${err}`));
   }
 }
 
@@ -149,7 +149,7 @@ function handleEditAvatarOpen() {
   popupEditAvatar.open();
   formEditAvatarValidator.resetValidation();
 }
-avatar.addEventListener('click', handleEditAvatarOpen);
+avatarButton.addEventListener('click', handleEditAvatarOpen);
 
 //Edti Profile Popup
 function handleFormEditProfileSubmit(userData) {

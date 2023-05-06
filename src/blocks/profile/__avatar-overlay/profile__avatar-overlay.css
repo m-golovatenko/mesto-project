@@ -18,4 +18,5 @@
 
 .profile__avatar-overlay:hover::after {
   opacity: 1;
+  cursor: pointer;
 }

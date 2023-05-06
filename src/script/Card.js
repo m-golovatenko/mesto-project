@@ -77,6 +77,7 @@ export default class Card {
     this._element.querySelector('.card__title').textContent = this._name;
 
     this._cardDeleteButton = this._element.querySelector('.card__delete-button');
+
     if (this._ownerId !== this._userId) {
       this._cardDeleteButton.remove();
     }
@@ -84,6 +85,10 @@ export default class Card {
     this._cardLikeButton = this._element.querySelector('.card__like-button');
     this._likeCounter = this._element.querySelector('.card__like-counter');
     this._likeCounter.textContent = this._likes.length;
+
+    if (this.isLiked()) {
+      this.like();
+    }
 
     this._setEventListeners();
     this._likeCard();
