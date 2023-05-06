@@ -27,7 +27,7 @@ export default class Api {
       headers: this._headers,
       body: JSON.stringify({
         name: data.name,
-        occupation: data.occupation
+        about: data.occupation
       })
     }).then(this._checkStatus);
   }

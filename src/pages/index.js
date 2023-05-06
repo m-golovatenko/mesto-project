@@ -11,8 +11,6 @@ import {
   userOccupationInput,
   apiAuthorization,
   formEditAvatarElement,
-  avatarLinkInput,
-  buttonEditAvatar,
   avatar
 } from '../script/const.js';
 import FormValidator from '../script/FormValidator.js';
@@ -25,6 +23,10 @@ import Api from '../script/Api';
 import PopupWithSubmit from '../script/PopupWithSubmit';
 
 //FUNCTIONS
+
+//API;
+const api = new Api(apiAuthorization);
+
 //ScalePhoto Popup
 const popupScalePhoto = new PopupWithImage('.popup_photo-scale');
 popupScalePhoto.setEventListeners();
@@ -32,12 +34,10 @@ popupScalePhoto.setEventListeners();
 function handleCardClick(name, link) {
   popupScalePhoto.open(name, link);
 }
+
 //PopupConfirm
 const popupSubmit = new PopupWithSubmit('.popup_delete-card');
 popupSubmit.setEventListeners();
-
-//API;
-const api = new Api(apiAuthorization);
 
 //UserId
 let userId;
@@ -107,26 +107,17 @@ const cardList = new Section(
   },
   '.photos'
 );
-//Edit Avatar Popup
-const popupEditAvatar = new PopupWithForm('.popup_change-avatar', handleFormEditAvatatSubmit);
-popupEditAvatar.setEventListeners();
-
-function handleFormEditAvatatSubmit() {}
-
-function handleEditAvatarOpen() {
-  popupEditAvatar.open();
-  formEditAvatarValidator.resetValidation();
-}
-avatar.addEventListener('click', handleEditAvatarOpen);
 
 //Add Card Popup
 function handleFormAddCardSubmit(formValues) {
+  popupAddCard.renderLoading(true);
   api
     .addCard({ name: formValues.title, link: formValues.link })
     .then(data => {
       cardList.addNewItem(createCard(data));
     })
-    .catch(err => console.error(`Ошибка при создании карточки: ${err}`));
+    .catch(err => console.error(`Ошибка при создании карточки: ${err}`))
+    .finally(() => popupAddCard.renderLoading(false));
 }
 
 const popupAddCard = new PopupWithForm('.popup_add', handleFormAddCardSubmit);
@@ -139,9 +130,37 @@ function handleAddCardPopupOpen() {
 
 buttonAddCard.addEventListener('click', handleAddCardPopupOpen);
 
+//Edit Avatar Popup
+const popupEditAvatar = new PopupWithForm('.popup_change-avatar', handleFormEditAvatatSubmit);
+popupEditAvatar.setEventListeners();
+
+function handleFormEditAvatatSubmit(newAvatar) {
+  popupEditAvatar.renderLoading(true);
+  api
+    .changeAvatar(newAvatar)
+    .then(data => {
+      userProfile.setUserAvatar(data.avatar);
+    })
+    .catch(err => console.error(`Ошибка при изменении аватара: ${err}`))
+    .finally(() => popupEditAvatar.renderLoading(false));
+}
+
+function handleEditAvatarOpen() {
+  popupEditAvatar.open();
+  formEditAvatarValidator.resetValidation();
+}
+avatar.addEventListener('click', handleEditAvatarOpen);
+
 //Edti Profile Popup
-function handleFormEditProfileSubmit(formValues) {
-  userProfile.setUserInfo({ name: formValues.name, occupation: formValues.occupation });
+function handleFormEditProfileSubmit(userData) {
+  popupEditProfile.renderLoading(true);
+  api
+    .changeUserInfo(userData)
+    .then(formValues => {
+      userProfile.setUserInfo({ name: formValues.name, occupation: formValues.about });
+    })
+    .catch(err => console.error(`Ошибка при изменении данных профиля: ${err}`))
+    .finally(() => popupEditProfile.renderLoading(false));
 }
 
 const userProfile = new UserInfo({
