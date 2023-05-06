@@ -39,7 +39,10 @@
                     <img class="card__place">
                     <div class="card__flex">
                         <h2 class="card__title"></h2>
-                        <button class="card__like-button" aria-label="Нравится"></button>
+                        <div class="card__like-box">
+                            <button class="card__like-button" aria-label="Нравится"></button>
+                            <p class="card__like-counter">0</p>
+                        </div>
                     </div>
                 </div>
             </template>
@@ -88,11 +91,21 @@
     <section class="popup popup_change-avatar">
         <div class="popup__container">
             <h2 class="popup__title">Обновить аватар</h2>
-            <form class="popup__form" name="avatar" novalidate>
+            <form class="popup__form popup__form_avatar" name="avatar" novalidate>
                 <input type="url" name="avatar" id="popup__input-avatar" class="popup__input popup__input_type_avatar"
-                    placeholder="Ссылка на картинку" required>
+                    placeholder="Ссылка на новый аватар" required>
                 <span class="popup__input-error popup__input-avatar-error"></span>
                 <button class="popup__save-button" type="submit" aria-label="Сохранить">Сохранить</button>
+            </form>
+            <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
+        </div>
+    </section>
+
+    <section class="popup popup_delete-card">
+        <div class="popup__container">
+            <h2 class="popup__title">Вы уверены?</h2>
+            <form class="popup__form popup__form_delete-card" name="delete" novalidate>
+                <button class="popup__save-button" type="submit" aria-label="Да">Да</button>
             </form>
             <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
         </div>

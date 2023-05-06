@@ -7,6 +7,7 @@
   background-color: #fff;
   border: none;
   cursor: pointer;
+  align-self: center;
 }
 
 .card__like-button:hover {

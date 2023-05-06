@@ -2,16 +2,18 @@ import 'core-js/actual';
 import './index.css';
 
 import {
-  cards,
   config,
   formAddCardElement,
   formEditElement,
-  cardLinkInput,
-  cardTitleInput,
   buttonAddCard,
   buttonEditProfile,
   userNameInput,
-  userOccupationInput
+  userOccupationInput,
+  apiAuthorization,
+  formEditAvatarElement,
+  avatarLinkInput,
+  buttonEditAvatar,
+  avatar
 } from '../script/const.js';
 import FormValidator from '../script/FormValidator.js';
 import Card from '../script/Card.js';
@@ -20,34 +22,84 @@ import UserInfo from '../script/UserInfo.js';
 import PopupWithImage from '../script/PopupWithImage.js';
 import PopupWithForm from '../script/PopupWithForm.js';
 import Api from '../script/Api';
+import PopupWithSubmit from '../script/PopupWithSubmit';
 
 //FUNCTIONS
 //ScalePhoto Popup
 const popupScalePhoto = new PopupWithImage('.popup_photo-scale');
 popupScalePhoto.setEventListeners();
 
-function handleAddCardCardClick(name, link) {
+function handleCardClick(name, link) {
   popupScalePhoto.open(name, link);
 }
+//PopupConfirm
+const popupSubmit = new PopupWithSubmit('.popup_delete-card');
+popupSubmit.setEventListeners();
 
-//API
-// const api = new Api({
-//   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-65',
-//   headers: {
-//     authorization: '2a978c46-dbca-4ec1-9e35-2fcdefb9bfb3',
-//     'Content-Type': 'application/json'
-//   }
-// });
+//API;
+const api = new Api(apiAuthorization);
+
+//UserId
+let userId;
+
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+  .then(([userData, cardData]) => {
+    userId = userData._id;
+    cardList.renderItems(cardData);
+    userProfile.setUserInfo({ name: userData.name, occupation: userData.about });
+    userProfile.setUserAvatar(userData.avatar);
+  })
+  .catch(err => console.error(`Что-то пошло не так: ${err}`));
 
 // Render Card in DOM
-function createCard(items) {
-  const card = new Card(items, handleAddCardCardClick, '.card__template');
+function createCard(data) {
+  const card = new Card(
+    data,
+    handleCardClick,
+    '.card__template',
+    userId,
+    handleLikeCard,
+    handleDeleteCard
+  );
   return card.renderCard();
+}
+
+function handleDeleteCard(card) {
+  const handleDeleteSubmit = () => {
+    api
+      .deleteCard(card.cardId)
+      .then(res => {
+        card.deleteNewCard(res);
+        popupSubmit.close();
+      })
+      .catch(err => console.error(`Ошибка при удалении карточки: ${err}`));
+  };
+  popupSubmit.open();
+  popupSubmit.setSubmitAction(handleDeleteSubmit);
+}
+
+function handleLikeCard(card) {
+  if (!card.isLiked()) {
+    api
+      .likeCard(card.cardId)
+      .then(res => {
+        card.like();
+        card.countLikes(res);
+      })
+      .catch(err => console.error(`Ошибка при постановке лайка: ${err}`));
+  } else {
+    api
+      .unlikeCard(card.cardId)
+      .then(res => {
+        card.unlike();
+        card.countLikes(res);
+      })
+      .catch(err => console.error(`Ошибка при снятии лайка: ${err}`));
+  }
 }
 
 const cardList = new Section(
   {
-    items: cards,
     renderer: item => {
       const cardElement = createCard(item);
       cardList.addItem(cardElement);
@@ -55,13 +107,26 @@ const cardList = new Section(
   },
   '.photos'
 );
+//Edit Avatar Popup
+const popupEditAvatar = new PopupWithForm('.popup_change-avatar', handleFormEditAvatatSubmit);
+popupEditAvatar.setEventListeners();
 
-cardList.renderItems();
+function handleFormEditAvatatSubmit() {}
+
+function handleEditAvatarOpen() {
+  popupEditAvatar.open();
+  formEditAvatarValidator.resetValidation();
+}
+avatar.addEventListener('click', handleEditAvatarOpen);
 
 //Add Card Popup
 function handleFormAddCardSubmit(formValues) {
-  const cardElement = createCard({ name: formValues.title, link: formValues.link });
-  cardList.addNewItem(cardElement);
+  api
+    .addCard({ name: formValues.title, link: formValues.link })
+    .then(data => {
+      cardList.addNewItem(createCard(data));
+    })
+    .catch(err => console.error(`Ошибка при создании карточки: ${err}`));
 }
 
 const popupAddCard = new PopupWithForm('.popup_add', handleFormAddCardSubmit);
@@ -81,7 +146,8 @@ function handleFormEditProfileSubmit(formValues) {
 
 const userProfile = new UserInfo({
   userNameElement: '.profile__name',
-  userOccupationElement: '.profile__occupation'
+  userOccupationElement: '.profile__occupation',
+  userAvatarElement: '.profile__avatar'
 });
 
 const popupEditProfile = new PopupWithForm('.popup_edit', handleFormEditProfileSubmit);
@@ -105,3 +171,6 @@ formEditPopupValidator.enableValidation();
 
 const formAddPopupValidator = new FormValidator(config, formAddCardElement);
 formAddPopupValidator.enableValidation();
+
+const formEditAvatarValidator = new FormValidator(config, formEditAvatarElement);
+formEditAvatarValidator.enableValidation();
