@@ -19,7 +19,7 @@ import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
-import Api from '../utils/Api';
+import Api from '../components/Api';
 import PopupWithSubmit from '../components/PopupWithSubmit';
 
 //FUNCTIONS
