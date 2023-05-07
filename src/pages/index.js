@@ -12,15 +12,15 @@ import {
   apiAuthorization,
   formEditAvatarElement,
   avatarButton
-} from '../script/const.js';
-import FormValidator from '../script/FormValidator.js';
-import Card from '../script/Card.js';
-import Section from '../script/Section.js';
-import UserInfo from '../script/UserInfo.js';
-import PopupWithImage from '../script/PopupWithImage.js';
-import PopupWithForm from '../script/PopupWithForm.js';
-import Api from '../script/Api';
-import PopupWithSubmit from '../script/PopupWithSubmit';
+} from '../utils/constants.js';
+import FormValidator from '../components/FormValidator.js';
+import Card from '../components/Card.js';
+import Section from '../components/Section.js';
+import UserInfo from '../components/UserInfo.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import Api from '../utils/Api';
+import PopupWithSubmit from '../components/PopupWithSubmit';
 
 //FUNCTIONS
 
@@ -46,7 +46,12 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, cardData]) => {
     userId = userData._id;
     cardList.renderItems(cardData);
-    userProfile.setUserInfo({ name: userData.name, occupation: userData.about });
+    userProfile.setUserInfo({
+      name: userData.name,
+      occupation: userData.about,
+      avatar: avatar,
+      _id: userId
+    });
     userProfile.setUserAvatar(userData.avatar);
   })
   .catch(err => console.error(`Что-то пошло не так: ${err}`));
@@ -70,8 +75,8 @@ function handleDeleteCard(card) {
       .deleteCard(card.cardId)
       .then(res => {
         card.deleteNewCard(res);
-        popupSubmit.close();
       })
+      .then(() => popupSubmit.close())
       .catch(err => console.error(`Ошибка при удалении карточки: ${err}`));
   };
   popupSubmit.open();
@@ -116,6 +121,7 @@ function handleFormAddCardSubmit(formValues) {
     .then(data => {
       cardList.addNewItem(createCard(data));
     })
+    .then(() => popupAddCard.close())
     .catch(err => console.error(`Ошибка при создании карточки: ${err}`))
     .finally(() => popupAddCard.renderLoading(false));
 }
@@ -141,6 +147,7 @@ function handleFormEditAvatatSubmit(newAvatar) {
     .then(data => {
       userProfile.setUserAvatar(data.avatar);
     })
+    .then(() => popupEditAvatar.close())
     .catch(err => console.error(`Ошибка при изменении аватара: ${err}`))
     .finally(() => popupEditAvatar.renderLoading(false));
 }
@@ -159,6 +166,7 @@ function handleFormEditProfileSubmit(userData) {
     .then(formValues => {
       userProfile.setUserInfo({ name: formValues.name, occupation: formValues.about });
     })
+    .then(() => popupEditProfile.close())
     .catch(err => console.error(`Ошибка при изменении данных профиля: ${err}`))
     .finally(() => popupEditProfile.renderLoading(false));
 }
